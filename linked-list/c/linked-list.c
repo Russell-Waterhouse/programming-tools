@@ -3,54 +3,61 @@
 
 typedef struct Node {
     struct Node* next;
-    int* value;
+    int value;
 } Node;
     
 
-int printlist(struct Node* head);
-struct Node* addItem(struct Node* head, int val);
+int printlist(Node* head);
+Node* addItem(Node* head, int val);
 
 
-int printList(struct Node* head){
+int printList(Node* head){
     Node* curr = head;
-    while (curr -> next != NULL) {
-        printf("%d", *(curr->value));
+    while (curr != NULL) {
+        printf("%d\n", (curr->value));
         curr = curr -> next;
     }
     return 0;
 }
 
-struct Node* addItem(struct Node* head, int val) {
+Node* addItem(Node* head, int val) {
     // TODO: there's a more elegant way of doing this, I just can't remember it
     // on the ferry right now
     if(head == NULL) {
-        struct Node* item = malloc(sizeof(Node*));
+        Node* item = malloc(sizeof(Node));
         if (item == NULL) {
             printf("Malloc failed");
             return NULL;
         }
         item -> next = NULL;
-        item -> value = &val;
+        item -> value = val;
         return item;
     }
 
-    struct Node* curr = head;
+    Node* curr = head;
     while (curr -> next != NULL) {
         curr = curr -> next;
     }
-    struct Node* item = malloc(sizeof(Node*));
+    Node* item = malloc(sizeof(Node));
     if (item == NULL) {
         printf("Malloc failed");
         return head;
     }
     item -> next = NULL;
-    item -> value = &val;
+    item -> value = val;
     curr -> next = item;
     return head;
 }
 
 int main(){
-    printf("Hello, World!");
+    Node* head = addItem(NULL, 20);
+    head = addItem(head, 30);
+    head = addItem(head, 31);
+    head = addItem(head, 32);
+    head = addItem(head, 33);
+    head = addItem(head, 34);
+    head = addItem(head, 35);
+    printList(head);
     return 0;
 }
 
