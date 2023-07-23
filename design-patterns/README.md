@@ -12,9 +12,13 @@ Each implementation folder contains the following:
 1. The actual implementation of the design pattern.
 2. A test file, which shows how the components of the design pattern 
 fit together and work together.
-3. A `Dockerfile`, which will run the tests and print their output. 
-This is done so that everyone can run my examples without me having to 
-explain how to install rust, gcc, ghc, go, etc. on Windows, Mac, Ubuntu,
-Arch, Fedora, Debian, RHEL, etc.
+3. A `Dockerfile`, which will build the implementation and tests.
+4. A `compose.yml` file, which will build the docker image(s) and run the tests.
 
+To run the tests as prescribed in the tests and docker file, install docker,
+install docker-compose, start the docker engine, and run the following command.
+
+```
+docker compose up
+```
 

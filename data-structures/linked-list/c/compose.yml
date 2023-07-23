@@ -1,0 +1,6 @@
+version: '3'
+
+services:
+  linked-list-c:
+    build: .
+    image: linked-list-c
