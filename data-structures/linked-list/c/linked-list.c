@@ -12,11 +12,12 @@ typedef struct List {
 
 int printlist(List* list);
 List* addItem(List* list, int val);
+List* remove_item(List* list, int val);
+int free_list(List* list);
 
 
 int printList(List* list){
-    Node* head = list -> head;
-    Node* curr = head;
+    Node* curr = list -> head;
     while (curr != NULL) {
         printf("%d\n", (curr->value));
         curr = curr -> next;
@@ -55,6 +56,26 @@ List* addItem(List* list, int val) {
     return list;
 }
 
+List* remove_item(List* list, int val) {
+    if (list == NULL) {
+        printf("cannot remove item from a null list");
+        return list;
+    }
+    Node* curr = list -> head;
+    // todo: finish this function
+}
+
+int free_list(List* list) {
+    Node* curr = list -> head;
+    while(curr != NULL) {
+        Node* next = curr -> next;
+        free(curr);
+        curr = next;
+    }
+    free(list);
+    return 0;
+}
+
 int main(){
     List* list = malloc(sizeof(List));
     if (list == NULL) {
@@ -69,6 +90,7 @@ int main(){
     list = addItem(list, 34);
     list = addItem(list, 35);
     printList(list);
+    free_list(list);
     return 0;
 }
 
