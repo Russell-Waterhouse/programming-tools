@@ -26,4 +26,8 @@ implementation in C first. I want to demonstrate these kinds of differences.
 1. I offer no guarantee of the correctness or completeness of anything 
 in this repository. If you copy-paste my incomplete buggy code into 
 your production code base, break something, and get fired, that's on you.
-
+2. I STRONGLY discourage using this repository to cheat on programming 
+assignments. I have taken the time to create and maintain this repository 
+because my career as a software engineer has taught me that these tools
+are necessary to understand. Please do use my work as a reference in your 
+own learning, but don't just copy-paste it for a grade.
