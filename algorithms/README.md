@@ -1,8 +1,8 @@
 # Algorithms
 
-This directory in this project contains data structures.
-Each folder represents a different data structure. 
-Each data structure has the following:
+This directory in this project contains Algorithms.
+Each folder represents a different algorithms.
+Each algorichm directory has the following:
 1. A README explaining the algorithm, how it works, time complexity, and where 
 the algorithm is commonly used.
 2. A folder for each implementation of that algorithm, labelled by 
