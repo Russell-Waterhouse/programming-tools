@@ -6,12 +6,16 @@ typedef struct Node {
     int value;
 } Node;
     
+typedef struct List {
+    Node* head;
+} List;
 
-int printlist(Node* head);
-Node* addItem(Node* head, int val);
+int printlist(List* list);
+List* addItem(List* list, int val);
 
 
-int printList(Node* head){
+int printList(List* list){
+    Node* head = list -> head;
     Node* curr = head;
     while (curr != NULL) {
         printf("%d\n", (curr->value));
@@ -20,7 +24,8 @@ int printList(Node* head){
     return 0;
 }
 
-Node* addItem(Node* head, int val) {
+List* addItem(List* list, int val) {
+    Node* head = list -> head;
     // TODO: there's a more elegant way of doing this, I just can't remember it
     // on the ferry right now
     if(head == NULL) {
@@ -31,7 +36,8 @@ Node* addItem(Node* head, int val) {
         }
         item -> next = NULL;
         item -> value = val;
-        return item;
+        list -> head = item;
+        return list;
     }
 
     Node* curr = head;
@@ -41,23 +47,28 @@ Node* addItem(Node* head, int val) {
     Node* item = malloc(sizeof(Node));
     if (item == NULL) {
         printf("Malloc failed");
-        return head;
+        return list;
     }
     item -> next = NULL;
     item -> value = val;
     curr -> next = item;
-    return head;
+    return list;
 }
 
 int main(){
-    Node* head = addItem(NULL, 20);
-    head = addItem(head, 30);
-    head = addItem(head, 31);
-    head = addItem(head, 32);
-    head = addItem(head, 33);
-    head = addItem(head, 34);
-    head = addItem(head, 35);
-    printList(head);
+    List* list = malloc(sizeof(List));
+    if (list == NULL) {
+        printf("Malloc for list failed");
+        return -1;
+    }
+    list = addItem(list, 20);
+    list = addItem(list, 30);
+    list = addItem(list, 31);
+    list = addItem(list, 32);
+    list = addItem(list, 33);
+    list = addItem(list, 34);
+    list = addItem(list, 35);
+    printList(list);
     return 0;
 }
 
