@@ -11,7 +11,7 @@ typedef struct List {
 } List;
 
 int printlist(List* list);
-List* addItem(List* list, int val);
+List* tail_insert(List* list, int val);
 List* remove_item(List* list, int val);
 int free_list(List* list);
 
@@ -25,7 +25,7 @@ int printList(List* list){
     return 0;
 }
 
-List* addItem(List* list, int val) {
+List* tail_insert_verbose(List* list, int val) {
     Node* head = list -> head;
     // TODO: there's a more elegant way of doing this, I just can't remember it
     // on the ferry right now
@@ -56,6 +56,27 @@ List* addItem(List* list, int val) {
     return list;
 }
 
+List* tail_insert_concise(List* list, int val) {
+    //TODO: Test
+    Node** curr = &list -> head;
+    while (*curr != NULL) {
+        *curr = &(*curr)->next;
+    }
+    *curr = *curr; // TODO: Pick up here later
+}
+
+List* head_insert(List* list, int val) { 
+    Node* new = malloc(sizeof(Node));
+    if (new == NULL) { 
+        printf("Malloc failed");
+        return list;
+    }
+    new -> value = val;
+    new -> next = list -> head;
+    list -> head = new;
+    return list;
+}
+
 List* remove_item(List* list, int val) {
     if (list == NULL) {
         printf("cannot remove item from a null list");
@@ -82,13 +103,13 @@ int main(){
         printf("Malloc for list failed");
         return -1;
     }
-    list = addItem(list, 20);
-    list = addItem(list, 30);
-    list = addItem(list, 31);
-    list = addItem(list, 32);
-    list = addItem(list, 33);
-    list = addItem(list, 34);
-    list = addItem(list, 35);
+    list = tail_insert(list, 20);
+    list = tail_insert(list, 30);
+    list = tail_insert(list, 31);
+    list = tail_insert(list, 32);
+    list = tail_insert(list, 33);
+    list = tail_insert(list, 34);
+    list = tail_insert(list, 35);
     printList(list);
     free_list(list);
     return 0;
