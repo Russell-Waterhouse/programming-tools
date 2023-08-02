@@ -1,22 +1,9 @@
 #include <stdlib.h>
 #include <stdio.h>
-
-typedef struct Node {
-    struct Node* next;
-    int value;
-} Node;
-    
-typedef struct List {
-    Node* head;
-} List;
-
-int printlist(List* list);
-List* tail_insert(List* list, int val);
-List* remove_item(List* list, int val);
-int free_list(List* list);
+#include "linked-list.h"
 
 
-int printList(List* list){
+int print_list(List* list){
     Node* curr = list -> head;
     while (curr != NULL) {
         printf("%d\n", (curr->value));
@@ -94,24 +81,6 @@ int free_list(List* list) {
         curr = next;
     }
     free(list);
-    return 0;
-}
-
-int main(){
-    List* list = malloc(sizeof(List));
-    if (list == NULL) {
-        printf("Malloc for list failed");
-        return -1;
-    }
-    list = tail_insert(list, 20);
-    list = tail_insert(list, 30);
-    list = tail_insert(list, 31);
-    list = tail_insert(list, 32);
-    list = tail_insert(list, 33);
-    list = tail_insert(list, 34);
-    list = tail_insert(list, 35);
-    printList(list);
-    free_list(list);
     return 0;
 }
 
