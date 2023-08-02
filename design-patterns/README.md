@@ -19,6 +19,6 @@ To run the tests as prescribed in the tests and docker file, install docker,
 install docker-compose, start the docker engine, and run the following command.
 
 ```
-docker compose up
+docker compose up --build
 ```
 
