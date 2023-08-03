@@ -6,16 +6,15 @@
 int print_list(List* list){
     Node* curr = list -> head;
     while (curr != NULL) {
-        printf("%d\n", (curr->value));
+        printf("%d->", (curr->value));
         curr = curr -> next;
     }
+    printf("NULL\n");
     return 0;
 }
 
 List* tail_insert(List* list, int val) {
     Node* head = list -> head;
-    // TODO: there's a more elegant way of doing this, I just can't remember it
-    // on the ferry right now
     if(head == NULL) {
         Node* item = malloc(sizeof(Node));
         if (item == NULL) {

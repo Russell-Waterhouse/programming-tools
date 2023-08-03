@@ -15,6 +15,11 @@ int main(){
     list = tail_insert(list, 33);
     list = tail_insert(list, 34);
     list = tail_insert(list, 35);
+    list = head_insert(list, 10);
+    print_list(list);
+    Node* head = list -> head;
+    remove_node(list, head -> next);
+    remove_node(list, head);
     print_list(list);
     free_list(list);
     return 0;
