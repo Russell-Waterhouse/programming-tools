@@ -13,7 +13,7 @@ Each implementation folder contains the following:
 operations supported by that algorithm.
 2. A test file, which shows how the operations on the algorithm  
 are used.
-3. A `Dockerfile`, which will build the implementation and tests.
+\nThe test files will just print output using the exposed API, not rigorously unit test the implementation\n3. A `Dockerfile`, which will build the implementation and tests.
 4. A `compose.yml` file, which will build the docker image(s) and run the tests.
 
 To run the tests as prescribed in the tests and docker file, install docker,
