@@ -1,11 +1,18 @@
+require_relative "node"
+
 class LinkedList
 
-  @value
-  @next
+  @size
+  @head
+
+  def initialize()
+    @size = 0
+    @head = nil
+  end
 
   def insert_head(head, val)
-    new_head = LinkedList(value: val, next: head)
-    return new_head
+    new_head = Node.new(value: val, next_node: head)
+    @head = new_head
   end
 
   def insert_tail()
@@ -21,6 +28,10 @@ class LinkedList
   end
 
   def print_list()
-    # todo
+    current = @head
+    while current != nil do
+      puts "Node: #{current.val}"
+      current = current.next
+    end
   end
 end
