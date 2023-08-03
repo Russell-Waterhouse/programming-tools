@@ -9,8 +9,7 @@ int print_list(List* list){
         printf("%d->", (curr->value));
         curr = curr -> next;
     }
-    printf("NULL
-");
+    printf("NULL\n");
     return 0;
 }
 
