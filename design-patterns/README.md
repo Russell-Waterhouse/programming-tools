@@ -12,7 +12,9 @@ Each implementation folder contains the following:
 1. The actual implementation of the design pattern.
 2. A test file, which shows how the components of the design pattern 
 fit together and work together.
-\nThe test files will just print output using the exposed API, not rigorously unit test the implementation\n3. A `Dockerfile`, which will build the implementation and tests.
+
+The test files will just print output using the exposed API, not rigorously unit test the implementation
+3. A `Dockerfile`, which will build the implementation and tests.
 4. A `compose.yml` file, which will build the docker image(s) and run the tests.
 
 To run the tests as prescribed in the tests and docker file, install docker,
