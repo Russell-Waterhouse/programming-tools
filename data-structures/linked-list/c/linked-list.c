@@ -12,7 +12,7 @@ int print_list(List* list){
     return 0;
 }
 
-List* tail_insert_verbose(List* list, int val) {
+List* tail_insert(List* list, int val) {
     Node* head = list -> head;
     // TODO: there's a more elegant way of doing this, I just can't remember it
     // on the ferry right now
@@ -43,15 +43,6 @@ List* tail_insert_verbose(List* list, int val) {
     return list;
 }
 
-List* tail_insert_concise(List* list, int val) {
-    //TODO: Test
-    Node** curr = &list -> head;
-    while (*curr != NULL) {
-        *curr = &(*curr)->next;
-    }
-    *curr = *curr; // TODO: Pick up here later
-}
-
 List* head_insert(List* list, int val) { 
     Node* new = malloc(sizeof(Node));
     if (new == NULL) { 
@@ -64,13 +55,28 @@ List* head_insert(List* list, int val) {
     return list;
 }
 
-List* remove_item(List* list, int val) {
+List* remove_node(List* list, Node* node) {
     if (list == NULL) {
         printf("cannot remove item from a null list");
         return list;
     }
     Node* curr = list -> head;
-    // todo: finish this function
+    if(curr == node) {
+        list -> head = curr ->next;
+        free (node);
+        return list;
+    }
+    while (curr -> next != node) {
+        if (curr == NULL) {
+            printf("node not found in list");
+            return list;
+        }
+        curr = curr -> next;
+    }
+    Node* n = curr -> next;
+    curr -> next = curr -> next -> next;
+    free(n);
+    return list;
 }
 
 int free_list(List* list) {

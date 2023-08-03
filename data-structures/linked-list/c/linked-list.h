@@ -8,8 +8,8 @@ typedef struct List {
 } List;
 
 int print_list(List* list);
-List* tail_insert_verbose(List* list, int val);
-List* tail_insert_concise(List* list, int val);
-List* remove_item(List* list, int val);
+List* tail_insert(List* list, int val);
+List* head_insert(List* list, int val);
+List* remove_node(List* list, Node* node);
 int free_list(List* list);
 

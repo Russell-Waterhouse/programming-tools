@@ -8,13 +8,13 @@ int main(){
         printf("Malloc for list failed");
         return -1;
     }
-    list = tail_insert_verbose(list, 20);
-    list = tail_insert_verbose(list, 30);
-    list = tail_insert_verbose(list, 31);
-    list = tail_insert_verbose(list, 32);
-    list = tail_insert_verbose(list, 33);
-    list = tail_insert_verbose(list, 34);
-    list = tail_insert_verbose(list, 35);
+    list = tail_insert(list, 20);
+    list = tail_insert(list, 30);
+    list = tail_insert(list, 31);
+    list = tail_insert(list, 32);
+    list = tail_insert(list, 33);
+    list = tail_insert(list, 34);
+    list = tail_insert(list, 35);
     print_list(list);
     free_list(list);
     return 0;
