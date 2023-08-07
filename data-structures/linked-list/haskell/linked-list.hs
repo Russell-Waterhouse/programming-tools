@@ -20,13 +20,13 @@ printList EmptyNode = ""
 printList node = show (val node) ++ " -> " ++ printList (next node)
 
 
-removeNode :: Node -> Int -> Node
+removeNode :: Node -> Node -> Node
 removeNode EmptyNode _ = EmptyNode
-removeNode head value = let
-        headIsValue = value == val head
+removeNode head nodeToRemove = let
+        headIsValue = nodeToRemove == head
     in
         if headIsValue then
-            removeNode (next head) value
+            removeNode (next head) nodeToRemove
         else
-            Node (val head) $ removeNode (next head) value
+            Node (val head) $ removeNode (next head) nodeToRemove
 
