@@ -1,0 +1,6 @@
+version: '3'
+
+services: 
+  linked-list-haskell:
+    build: .
+    image: linked-list-haskell
