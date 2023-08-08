@@ -1,5 +1,3 @@
-
-# TODO: this is untested ond doesn't work
 def quick_sort(input, low_index, high_index)
   if low_index < high_index 
     partition_index = partition(input, low_index, high_index)
@@ -26,5 +24,6 @@ def partition(input, low_index, high_index)
   tmp = input[pivot_index]
   input[pivot_index] = pivot
   input[high_index] = tmp
-  return i
+
+  return pivot_index
 end

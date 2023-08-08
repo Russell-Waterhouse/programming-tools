@@ -1,0 +1,6 @@
+version: '3'
+
+services: 
+  quicksort-ruby:
+    build: .
+    image: quicksort-ruby
