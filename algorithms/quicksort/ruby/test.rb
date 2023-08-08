@@ -2,7 +2,7 @@ require_relative "quicksort"
 
 def test_sort_empty()
   input = []
-  result = quick_sort(input, 0, input.length - 1)
+  result = quick_sort!(input, 0, input.length - 1)
   expected = []
   if result == expected
     puts "Test sort empty: Passed"
@@ -13,7 +13,7 @@ end
 
 def test_sort_one_element()
   input = [1]
-  result = quick_sort(input, 0, input.length - 1)
+  result = quick_sort!(input, 0, input.length - 1)
   expected = [1]
   if result == expected
     puts "Test sort one element: Passed"
@@ -24,7 +24,7 @@ end
 
 def test_sort_two_elements()
   input = [10, 1]
-  result = quick_sort(input, 0, input.length - 1)
+  result = quick_sort!(input, 0, input.length - 1)
   expected = [1, 10]
   if result == expected
     puts "Test sort two elements: Passed"
@@ -35,7 +35,7 @@ end
 
 def test_sort_three_elements()
   input = [10, 1, 2]
-  result = quick_sort(input, 0, input.length - 1)
+  result = quick_sort!(input, 0, input.length - 1)
   expected = [1, 2, 10]
   if result == expected
     puts "Test sort three elements: Passed"
@@ -51,7 +51,7 @@ def test_sort_many_elements()
            17, 5, 44, 35, 26, 30, 18, 40, 36, 42, 
            16, 8, 20, 27, 25, 1, 9, 29, 32, 46]
 
-  result = quick_sort(input, 0, input.length - 1)
+  result = quick_sort!(input, 0, input.length - 1)
   expected = input.sort
   
   if result == expected
