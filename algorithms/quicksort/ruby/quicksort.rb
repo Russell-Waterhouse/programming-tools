@@ -14,9 +14,9 @@ def partition!(arr, low_index, high_index)
   i = low_index
   while i < high_index
     if arr[i] <= pivot
-      temp = arr[i]
+      tmp = arr[i]
       arr[i] = arr[pivot_index]
-      arr[pivot_index] = temp
+      arr[pivot_index] = tmp
       pivot_index += 1
     end 
     i += 1
@@ -25,6 +25,6 @@ def partition!(arr, low_index, high_index)
   arr[pivot_index] = pivot
   arr[high_index] = tmp
 
-  return pivot_index
+  pivot_index
 end
 
