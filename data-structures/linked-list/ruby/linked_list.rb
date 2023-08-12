@@ -20,6 +20,7 @@ class LinkedList
   def insert_tail(val)
     if @head == nil
       @head = Node.new(value: val, next_node: nil)
+      @size += 1
       return
     end
     current = @head
@@ -27,11 +28,13 @@ class LinkedList
       current = current.next
     end
     current.set_next Node.new(value: val, next_node: nil)
+    @size += 1
   end
 
   def delete_node(node)
     if @head == node
       @head = node.next
+      @size -= 1
       return
     end
 

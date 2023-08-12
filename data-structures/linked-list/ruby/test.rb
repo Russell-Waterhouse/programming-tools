@@ -70,8 +70,29 @@ def test_print_list()
   end
 end
 
+def test_size()
+  ll = LinkedList.new
+  ll.insert_head(4)
+  ll.insert_head(3)
+  ll.insert_head(2)
+  ll.insert_head(1)
+  ll.insert_head(0)
+  ll.insert_head(-1)
+  result1 = ll.size
+  expected1 = 6
+  ll.delete_node(ll.head)
+  result2 = ll.size
+  expected2 = 5
+  if result1 == expected1 && result2 == expected2
+    puts "Test Size Passed"
+  else
+    puts "Test Size Failed"
+  end
+end
+
 test_insert_head()
 test_tail_insert()
 test_delete_node()
 test_print_list()
+test_size()
 
