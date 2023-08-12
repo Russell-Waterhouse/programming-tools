@@ -17,7 +17,7 @@ the list.
 | `insertTail(data)` | O(n) |
 | `deleteNode(Node)` | O(n) |
 | `printList()`      | O(n) |
-| `size()`           | O(n) | 
+| `size()`           | O(n) or O(1) - implementation dependant | 
 
 
 
