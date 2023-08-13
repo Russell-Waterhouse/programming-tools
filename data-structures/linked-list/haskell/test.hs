@@ -1,5 +1,5 @@
 module Main where
-import LinkedList (Node(..), tailInsert, headInsert, removeNode, printList)
+import LinkedList (Node(..), tailInsert, headInsert, removeNode, printList, size)
 
 
 testHeadInsert :: IO ()
@@ -42,10 +42,19 @@ testPrintList = do
     then putStrLn "Test Print List: Passed"
     else putStrLn "Test Print List: Failed"
 
+testSize :: IO ()
+testSize = do
+    let result = size $ Node 2 $ Node 1 EmptyNode
+    let expected = 2
+    if result == expected
+    then putStrLn "Test List Size: Passed"
+    else putStrLn "Test List Size: Failed"
+
+
 main :: IO ()
 main = do
     testHeadInsert
     testTailInsert
     testRemoveNode
     testPrintList
-
+    testSize

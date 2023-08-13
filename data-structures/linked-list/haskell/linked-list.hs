@@ -30,3 +30,7 @@ removeNode head nodeToRemove = let
         else
             Node (val head) $ removeNode (next head) nodeToRemove
 
+size :: Node -> Int
+size EmptyNode = 0
+size node = 1 + size (next node)
+
