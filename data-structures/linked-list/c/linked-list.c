@@ -1,16 +1,42 @@
 #include <stdlib.h>
 #include <stdio.h>
+#include <string.h>
 #include "linked-list.h"
 
+#define PRINT_BUFFER_SIZE 255
+#define ASCII_INT_OFFSET 48
 
-int print_list(List* list){
+char int_to_char(int n) {
+    if (n > 9 || n < 0) {
+        printf("n out of range: %d", n);
+        return '0';
+    }
+    return n + ASCII_INT_OFFSET;
+}
+
+char* print_list(List* list) {
     Node* curr = list -> head;
+    char* print_buffer = malloc(sizeof(char) * PRINT_BUFFER_SIZE);
+    int i = 0;
     while (curr != NULL) {
-        printf("%d->", (curr->value));
+        if (i + 5 > PRINT_BUFFER_SIZE) {
+            printf("Would have overrun the buffer, exiting early");
+            print_buffer[i] = '\0';
+            return print_buffer;
+        }
+        // I have simplified this because I'm trying to show how
+        // linked lists work in c, not how difficult it is to
+        // safely build strings out of integers
+        // This will fail as soon as curr->value is negative or greater than 9
+        print_buffer[i++] = int_to_char(curr -> value);
+        print_buffer[i++] = ' ';
+        print_buffer[i++] = '-';
+        print_buffer[i++] = '>';
+        print_buffer[i++] = ' ';
         curr = curr -> next;
     }
-    printf("NULL\n");
-    return 0;
+    print_buffer[i] = '\0';
+    return print_buffer;
 }
 
 List* tail_insert(List* list, int val) {
@@ -87,5 +113,15 @@ int free_list(List* list) {
     }
     free(list);
     return 0;
+}
+
+int size(List* list) {
+    Node* curr = list -> head;
+    int list_size = 0;
+    while (curr != NULL) {
+        list_size++;
+        curr = curr -> next;
+    }
+    return list_size;
 }
 
