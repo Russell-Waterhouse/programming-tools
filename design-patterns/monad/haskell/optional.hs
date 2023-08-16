@@ -2,11 +2,15 @@ module Optional where
 
 import MyMonad (MyMonad, bind, myReturn)
 
-data Optional a = Empty | Full a 
+data Optional a = Empty | Full a deriving (Show)
 
-isEmpty :: Optional -> Bool
+isEmpty :: Optional a -> Bool
 isEmpty Empty = True
-isEmpty _ = False
+isEmpty (Full a) = False
+
+safeExtractOptional :: Optional a -> a -> a
+safeExtractOptional Empty fallback = fallback
+safeExtractOptional (Full val) fallback = fallback
 
 
 instance MyMonad Optional where
