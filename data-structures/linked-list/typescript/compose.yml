@@ -1,0 +1,7 @@
+version: "3"
+
+services: 
+  linked-list-ts:
+    build: .
+    image: linked-list-ts
+
