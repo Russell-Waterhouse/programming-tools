@@ -3,32 +3,38 @@
 #include <string.h>
 #include "linked-list.h"
 
-#define PRINT_BUFFER_SIZE 255
-#define ASCII_INT_OFFSET 48
+#define INIT_PRINT_BUFFER_SIZE 255
+#define MAX_STR_SIZE_FOR_INT 10
+#define SIZE_OF_ARROW_STR 4
 
-char int_to_char(int n) {
-    if (n > 9 || n < 0) {
-        printf("n out of range: %d", n);
-        return '0';
-    }
-    return n + ASCII_INT_OFFSET;
+char* int_to_string(int n) {
+    int size_of_string_representation = snprintf(NULL, 0, "%d", n);
+    size_of_string_representation++; // add 1 for terminating '\0' character
+    char* buffer = malloc(sizeof(size_of_string_representation));
+    snprintf(buffer, size_of_string_representation, "%d", n);
+    return buffer;
 }
 
 char* print_list(List* list) {
+    int buffer_size = INIT_PRINT_BUFFER_SIZE;
+    char* print_buffer = malloc(buffer_size);
     Node* curr = list -> head;
-    char* print_buffer = malloc(sizeof(char) * PRINT_BUFFER_SIZE);
     int i = 0;
     while (curr != NULL) {
-        if (i + 5 > PRINT_BUFFER_SIZE) {
-            printf("Would have overrun the buffer, exiting early");
-            print_buffer[i] = '\0';
-            return print_buffer;
+        char* curr_val_str = int_to_string(curr -> value);
+        int curr_val_str_len = strlen(curr_val_str);
+
+        // double buffer size if we're running out
+        while (i + curr_val_str_len + MAX_STR_SIZE_FOR_INT  + SIZE_OF_ARROW_STR > buffer_size){
+            buffer_size = buffer_size * 2;
+            print_buffer = realloc(print_buffer, buffer_size);
         }
-        // I have simplified this because I'm trying to show how
-        // linked lists work in c, not how difficult it is to
-        // safely build strings out of integers
-        // This will fail as soon as curr->value is negative or greater than 9
-        print_buffer[i++] = int_to_char(curr -> value);
+
+        // Copy current value into print_buffer
+        for(int j = 0; j < curr_val_str_len; j++) {
+            print_buffer[i++] = curr_val_str[j];
+        }
+        free(curr_val_str);
         print_buffer[i++] = ' ';
         print_buffer[i++] = '-';
         print_buffer[i++] = '>';
