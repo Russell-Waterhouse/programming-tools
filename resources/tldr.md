@@ -13,37 +13,37 @@ For example, if I want to work with tar, I can just type:
 ```
 tldr tar
 ```
-in my terminal and get the following concise output:
+in my terminal and get the following concise output (note, I stripped the color
+output for the sake of this readme):
 
 ```
+tar
 
-[1m[39mtar
-[22m[39m
-[39mArchiving utility.[22m[39m
-[39mOften combined with a compression method, such as gzip or bzip2.[22m[39m
-[39mMore information: <https://www.gnu.org/software/tar>.[22m[39m
-[32m
-- [c]reate an archive and write it to a [f]ile:[22m[39m
-[31m    tar cf [22m[39m[34mpath/to/target.tar[39m[31m [22m[39m[34mpath/to/file1 path/to/file2 ...[39m[31m[22m[39m
-[32m
-- [c]reate a g[z]ipped archive and write it to a [f]ile:[22m[39m
-[31m    tar czf [22m[39m[34mpath/to/target.tar.gz[39m[31m [22m[39m[34mpath/to/file1 path/to/file2 ...[39m[31m[22m[39m
-[32m
-- [c]reate a g[z]ipped archive from a directory using relative paths:[22m[39m
-[31m    tar czf [22m[39m[34mpath/to/target.tar.gz[39m[31m --directory=[22m[39m[34mpath/to/directory[39m[31m .[22m[39m
-[32m
-- E[x]tract a (compressed) archive [f]ile into the current directory [v]erbosely:[22m[39m
-[31m    tar xvf [22m[39m[34mpath/to/source.tar[.gz|.bz2|.xz][39m[31m[22m[39m
-[32m
-- E[x]tract a (compressed) archive [f]ile into the target directory:[22m[39m
-[31m    tar xf [22m[39m[34mpath/to/source.tar[.gz|.bz2|.xz][39m[31m --directory=[22m[39m[34mpath/to/directory[39m[31m[22m[39m
-[32m
-- [c]reate a compressed archive and write it to a [f]ile, using [a]rchive suffix to determine the compression program:[22m[39m
-[31m    tar caf [22m[39m[34mpath/to/target.tar.xz[39m[31m [22m[39m[34mpath/to/file1 path/to/file2 ...[39m[31m[22m[39m
-[32m
-- Lis[t] the contents of a tar [f]ile [v]erbosely:[22m[39m
-[31m    tar tvf [22m[39m[34mpath/to/source.tar[39m[31m[22m[39m
-[32m
-- E[x]tract files matching a pattern from an archive [f]ile:[22m[39m
-[31m    tar xf [22m[39m[34mpath/to/source.tar[39m[31m --wildcards "[22m[39m[34m*.html[39m[31m"[22m[39m
+Archiving utility.
+Often combined with a compression method, such as gzip or bzip2.
+More information: <https://www.gnu.org/software/tar>.
+
+- [c]reate an archive and write it to a [f]ile:
+    tar cf path/to/target.tar path/to/file1 path/to/file2 ...
+
+- [c]reate a g[z]ipped archive and write it to a [f]ile:
+    tar czf path/to/target.tar.gz path/to/file1 path/to/file2 ...
+
+- [c]reate a g[z]ipped archive from a directory using relative paths:
+    tar czf path/to/target.tar.gz --directory=path/to/directory .
+
+- E[x]tract a (compressed) archive [f]ile into the current directory [v]erbosely:
+    tar xvf path/to/source.tar[.gz|.bz2|.xz]
+
+- E[x]tract a (compressed) archive [f]ile into the target directory:
+    tar xf path/to/source.tar[.gz|.bz2|.xz] --directory=path/to/directory
+
+- [c]reate a compressed archive and write it to a [f]ile, using [a]rchive suffix to determine the compression program:
+    tar caf path/to/target.tar.xz path/to/file1 path/to/file2 ...
+
+- Lis[t] the contents of a tar [f]ile [v]erbosely:
+    tar tvf path/to/source.tar
+
+- E[x]tract files matching a pattern from an archive [f]ile:
+    tar xf path/to/source.tar --wildcards "*.html"
 ```
