@@ -6,11 +6,11 @@ RUN wget https://github.com/JetBrains/kotlin/releases/download/v1.9.0/kotlin-com
 
 RUN unzip kotlin-compiler-1.9.0.zip
 
-COPY test.kt .
+COPY Test.kt .
 
 COPY Singleton.kt .
 
-RUN ./kotlinc/bin/kotlinc test.kt Singleton.kt -include-runtime -d test.jar
+RUN ./kotlinc/bin/kotlinc Test.kt Singleton.kt -include-runtime -d test.jar
 
 FROM ubuntu:latest as runner
 
