@@ -11,7 +11,7 @@ get repeatable results when I see a problem I recognize.
 
 ### Why Would You Do All of These Multiple Times in Multiple Programming Languages?
 
-There are two reasons that I did that.
+There are five reasons that I did that.
 1. I wanted to show that these tools aren't just for people using technology X.
 I've found people that think that design patterns are just for Java devs, or 
 algorithms only matter in high-performance computing, and I believe that to be 
@@ -27,6 +27,11 @@ a for loop, but it will be done recursively in Haskell.
 be broadly applicable. I want to be able to explain when to use a singleton
 and when not to and use any programming language that I'm familiar with as an 
 example.
+5. I want to be able to compare the performance of these implementations. I 
+want to compare a C linked list to a Haskell linked list and see if Haskell's 
+tail call recursion actually saves the amount of memory that people on reddit 
+claim it does.
+
 
 ## Disclaimers
 
