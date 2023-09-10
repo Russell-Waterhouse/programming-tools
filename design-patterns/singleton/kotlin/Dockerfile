@@ -8,7 +8,9 @@ RUN unzip kotlin-compiler-1.9.0.zip
 
 COPY test.kt .
 
-RUN ./kotlinc/bin/kotlinc test.kt -include-runtime -d test.jar
+COPY Singleton.kt .
+
+RUN ./kotlinc/bin/kotlinc test.kt Singleton.kt -include-runtime -d test.jar
 
 FROM ubuntu:latest as runner
 
