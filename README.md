@@ -3,9 +3,9 @@ Algorithms, Data Structures, and Design Patterns in numerous programming languag
 
 ## Why?
 
-### Why Would You Put Algorithms, Algorithms, Data Structures, Design Patterns, and Software Architectures in the Same Repository?
+### Why Would You Put Algorithms, Architectures, Data Structures, Design Patterns, Frameworks, and Resources all in the same Repository 
 
-Because they're all tools that software engineers use to get repeated results.
+Because they're all tools that software engineers use and should understand.
 They're all in the same toolbox. They're all tools that I can reach for to 
 get repeatable results when I see a problem I recognize.
 
@@ -13,7 +13,7 @@ get repeatable results when I see a problem I recognize.
 
 There are two reasons that I did that.
 1. I wanted to show that these tools aren't just for people using technology X.
-I've found people that think that design patterns are just for java devs, or 
+I've found people that think that design patterns are just for Java devs, or 
 algorithms only matter in high-performance computing, and I believe that to be 
 wrong.
 2. I want to show how different language features lend themselves more or less
@@ -22,7 +22,11 @@ in python very easily makes a stack, whereas you must create your own list
 implementation in C first. I want to demonstrate these kinds of differences.
 3. I want to show different techniques popular in different languages. 
 For example, iterating through a list in C will be done with a while loop or 
-a for loop, but it will be done recursively in haskell.
+a for loop, but it will be done recursively in Haskell.
+4. I want to explain when to use these patterns, and I want that lesson to 
+be broadly applicable. I want to be able to explain when to use a singleton
+and when not to and use any programming language that I'm familiar with as an 
+example.
 
 ## Disclaimers
 
