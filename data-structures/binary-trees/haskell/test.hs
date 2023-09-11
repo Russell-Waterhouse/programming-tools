@@ -1,4 +1,4 @@
-import BinaryTree (BinaryTree(..), insert, delete, find, traverse, height)
+import BinaryTree (BinaryTree(..), insert, delete, find, traverseTree, height)
 
 
 testInsertIntoEmpty :: IO ()
@@ -36,9 +36,21 @@ testInsertRight = do
     then putStrLn "Test insert right: Passed"
     else putStrLn "Test insert right: Failed"
 
+testTraverse :: IO ()
+testTraverse = do
+    let insert' = flip insert
+    let tree = insert' 2 $ insert' 1 $ insert' 3 $ insert' (-1) $ insert' 0 $ insert' 99 EmptyNode
+    let expected = "-1 0 1 2 3 99 "
+    let actual = traverseTree tree
+    if expected == actual 
+    then putStrLn "Test traversal: Passed"
+    else putStrLn "Test traversal: Failed"
+    
 main :: IO ()
 main = do 
     testInsertIntoEmpty
     testInsertSameValue
     testInsertLeft
     testInsertRight
+    testTraverse
+

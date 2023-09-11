@@ -26,7 +26,14 @@ delete = undefined
 
 find = undefined
 
-traverse = undefined
+-- an in-order traversal of the binary tree
+traverseTree :: BinaryTree -> String
+traverseTree EmptyNode = ""
+traverseTree tree = 
+    let leftSubtreeTraversal = traverseTree $ left tree
+        rightSubtreeTraversal = traverseTree $ right tree
+        value = show (val tree) ++ " "
+    in leftSubtreeTraversal ++ value ++ rightSubtreeTraversal
 
 height = undefined
 
