@@ -1,6 +1,6 @@
 version: "3"
 
 services:
-    haskell-binary-tree:
+    haskell-b-tree:
         build: .
         image: haskell-b-tree
