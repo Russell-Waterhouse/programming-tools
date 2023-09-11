@@ -32,6 +32,30 @@ want to compare a C linked list to a Haskell linked list and see if Haskell's
 tail call recursion actually saves the amount of memory that people on reddit 
 claim it does.
 
+## Current List of Tools in this Repo
+- Algorithms
+    - Quicksort
+        - Ruby
+
+- Architectures
+  
+- Data Structures
+    - Linked List
+        - C
+        - Haskell
+        - Ruby
+
+- Design Patterns
+    - Singleton
+        - Kotlin
+
+- Frameworks
+    - Templating
+    - Web UI Frameworks
+
+- Resources
+    - OhShitGit
+    - tldr
 
 ## Disclaimers
 
