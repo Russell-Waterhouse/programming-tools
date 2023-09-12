@@ -35,5 +35,11 @@ traverseTree tree =
         value = show (val tree) ++ " "
     in leftSubtreeTraversal ++ value ++ rightSubtreeTraversal
 
-height = undefined
+height :: BinaryTree -> Int
+height EmptyNode = 0
+height tree = 
+    let leftHeight = height $ left tree
+        rightHeight = height $ right tree
+        maxChildHeight = max leftHeight rightHeight
+    in maxChildHeight + 1
 
