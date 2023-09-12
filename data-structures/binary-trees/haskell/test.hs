@@ -4,6 +4,14 @@ import BinaryTree (BinaryTree(..), insert, delete, find, traverseTree, height)
 insert' :: Int -> BinaryTree -> BinaryTree
 insert' = flip insert
 
+testTree :: BinaryTree
+testTree = insert' 2 $ insert' 1 $ insert' 3 $ insert' (-1) $ insert' 0 $ insert' 99 EmptyNode
+--           99
+--        0    
+--    -1     3 
+--         1
+--           2 
+
 
 testInsertIntoEmpty :: IO ()
 testInsertIntoEmpty = do
@@ -42,7 +50,7 @@ testInsertRight = do
 
 testTraverse :: IO ()
 testTraverse = do
-    let tree = insert' 2 $ insert' 1 $ insert' 3 $ insert' (-1) $ insert' 0 $ insert' 99 EmptyNode
+    let tree = testTree
     let expected = "-1 0 1 2 3 99 "
     let actual = traverseTree tree
     if expected == actual 
@@ -53,13 +61,7 @@ testHeight :: IO ()
 testHeight = do
     let expectedEmpty = 0
     let actualEmpty = height EmptyNode
-    let fullTree = insert' 2 $ insert' 1 $ insert' 3 $ insert' (-1) $ insert' 0 $ insert' 99 EmptyNode
-    --          99
-    --        0    
-    --    -1     3 
-    --         1
-    --           2 
-    let actualFull = height fullTree 
+    let actualFull = height testTree 
     let expectedFull = 5
     if expectedEmpty == actualEmpty && expectedFull == actualFull
     then putStrLn "Test height: Passed"
