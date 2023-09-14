@@ -1,3 +1,4 @@
+{-# LANGUAGE ScopedTypeVariables #-}
 import BinaryTree (BinaryTree(..), insert, delete, find, traverseTree, height)
 
 
@@ -66,6 +67,16 @@ testHeight = do
     if expectedEmpty == actualEmpty && expectedFull == actualFull
     then putStrLn "Test height: Passed"
     else putStrLn "Test height: Failed"
+
+testFind :: IO ()
+testFind = do
+    let actualEmpty:: BinaryTree = find EmptyNode 99
+    let expectedFullFind:: BinaryTree = BinaryTree 2 EmptyNode EmptyNode
+    let actualFullFind:: BinaryTree = find testTree 2
+    if actualEmpty == EmptyNode && actualFullFind == expectedFullFind
+    then putStrLn "Test find: Passed"
+    else putStrLn "Test find: Failed"
+
     
 main :: IO ()
 main = do 
@@ -75,4 +86,4 @@ main = do
     testInsertRight
     testTraverse
     testHeight
-
+    testFind
