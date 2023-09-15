@@ -77,7 +77,37 @@ testFind = do
     then putStrLn "Test find: Passed"
     else putStrLn "Test find: Failed"
 
+testDeleteEmptyTree :: IO ()
+testDeleteEmptyTree = do
+    let actualResult = delete EmptyNode $ BinaryTree 1 EmptyNode EmptyNode
+    if actualResult == EmptyNode 
+    then putStrLn "Test Delete from empty tree: Passed"
+    else putStrLn "Test Delete from empty tree: Failed"
     
+testDeleteEmptyNode :: IO ()
+testDeleteEmptyNode = do
+    let tree :: BinaryTree = BinaryTree 1 EmptyNode EmptyNode
+    let actualResult :: BinaryTree = delete tree EmptyNode 
+    if actualResult == tree
+    then putStrLn "Test Delete empty node: Passed"
+    else putStrLn "Test Delete empty node: Failed"
+
+testDeleteLeafNode :: IO ()
+testDeleteLeafNode = do
+    let tree :: BinaryTree = BinaryTree 1 EmptyNode EmptyNode
+    let actualResult :: BinaryTree = delete tree tree 
+    if actualResult == EmptyNode
+    then putStrLn "Test Delete Leaf Node: Passed"
+    else putStrLn "Test Delete Leaf Node: Failed"
+
+testDeleteOneChild = do
+    let tree = BinaryTree 1 EmptyNode $ BinaryTree 2 EmptyNode EmptyNode
+    let expected = BinaryTree 2 EmptyNode EmptyNode
+    let actual = delete tree tree
+    if expected == actual 
+    then putStrLn "Test delete node with one child: Passed"
+    else putStrLn "Test delete node with one child: Failed"
+
 main :: IO ()
 main = do 
     testInsertIntoEmpty
@@ -87,3 +117,7 @@ main = do
     testTraverse
     testHeight
     testFind
+    testDeleteEmptyTree
+    testDeleteEmptyNode
+    testDeleteOneChild
+
