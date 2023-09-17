@@ -118,10 +118,10 @@ int test_print_list() {
         return -1;
     }
     list -> head = NULL;
-    head_insert(list, 1);
-    tail_insert(list, 2);
+    head_insert(list, -1);
+    tail_insert(list, 23);
     tail_insert(list, 3);
-    char* expected = "1 -> 2 -> 3 -> ";
+    char* expected = "-1 -> 23 -> 3 -> ";
     char* actual = print_list(list);
     int differences = strcmp(expected, actual);
     if (!differences) {
