@@ -32,8 +32,18 @@ delete :: BinaryTree -> BinaryTree -> BinaryTree
 delete EmptyNode _ = EmptyNode
 delete head EmptyNode = head
 delete head targetNode | head < targetNode = BinaryTree (val head) (left head) (delete (right head) targetNode)
-delete head targetNode | head > targetNode = undefined
-delete head targetNode | head == targetNode = undefined
+delete head targetNode | head > targetNode = BinaryTree (val head) (delete (left head) targetNode) (right head)
+delete head targetNode | head == targetNode = 
+    let
+        swapNode = predecessorOrSuccessor head
+        newHead = BinaryTree (val swapNode) (left head) (right head)
+        hasLeft = left head /= EmptyNode
+        hasRight = right head /= EmptyNode
+    in 
+    if hasLeft 
+    then BinaryTree (val swapNode) (delete (left head) swapNode) (right head)
+    else BinaryTree (val swapNode) (left head) (delete (right head) swapNode)
+    
         
 predecessorOrSuccessor :: BinaryTree -> BinaryTree
 predecessorOrSuccessor EmptyNode = EmptyNode
@@ -44,9 +54,11 @@ predecessorOrSuccessor head = rightmostNonemptyLeaf $ left head
 rightmostNonemptyLeaf :: BinaryTree -> BinaryTree
 rightmostNonemptyLeaf EmptyNode = EmptyNode
 rightMostNonemptyLeaf head = 
-    if right head == EmptyNode 
+    if right head == EmptyNode && (left head) == EmptyNode
     then head
-    else rightMostNonemptyLeaf  $ right head
+    else if right head == EmptyNode && (left head) /= EmptyNode
+    then rightMostNonemptyLeaf $ left head
+    else rightMostNonemptyLeaf $ right head
 
 find :: BinaryTree -> Int -> BinaryTree
 find EmptyNode _ = EmptyNode
