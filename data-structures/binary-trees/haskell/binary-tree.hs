@@ -33,6 +33,8 @@ delete EmptyNode _ = EmptyNode
 delete head EmptyNode = head
 delete head targetNode | head < targetNode = BinaryTree (val head) (left head) (delete (right head) targetNode)
 delete head targetNode | head > targetNode = BinaryTree (val head) (delete (left head) targetNode) (right head)
+delete head targetNode | head == targetNode && left head == EmptyNode = right head
+delete head targetNode | head == targetNode && right head == EmptyNode = left head
 delete head targetNode | head == targetNode = 
     let
         swapNode = predecessorOrSuccessor head
