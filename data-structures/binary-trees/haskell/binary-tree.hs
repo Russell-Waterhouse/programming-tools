@@ -6,13 +6,19 @@ data BinaryTree = BinaryTree
     ,   right :: BinaryTree
     } 
     | EmptyNode
-    deriving (Show, Eq)
+    deriving (Show)
 
 instance Ord BinaryTree where 
     (<)  bt1 bt2 = val bt1 < val bt2
     (<=) bt1 bt2 = val bt1 <= val bt2    
     (>=) bt1 bt2 = val bt1 >= val bt2
     (>)  bt1 bt2 = val bt1 > val bt2
+
+instance Eq BinaryTree where 
+    (==) EmptyNode EmptyNode = True
+    (==) EmptyNode bt2 = False
+    (==) bt1 EmptyNode = False
+    (==) bt1 bt2 = val bt1 == val bt2
 
 insert :: BinaryTree -> Int -> BinaryTree
 insert EmptyNode value = BinaryTree value EmptyNode EmptyNode
@@ -43,8 +49,8 @@ delete head targetNode | head == targetNode =
         hasRight = right head /= EmptyNode
     in 
     if hasLeft 
-    then BinaryTree (val swapNode) (delete (left head) swapNode) (right head)
-    else BinaryTree (val swapNode) (left head) (delete (right head) swapNode)
+        then BinaryTree (val swapNode) (delete (left head) swapNode) (right head)
+        else BinaryTree (val swapNode) (left head) (delete (right head) swapNode)
     
         
 predecessorOrSuccessor :: BinaryTree -> BinaryTree
@@ -55,12 +61,10 @@ predecessorOrSuccessor head = rightmostNonemptyLeaf $ left head
 
 rightmostNonemptyLeaf :: BinaryTree -> BinaryTree
 rightmostNonemptyLeaf EmptyNode = EmptyNode
-rightMostNonemptyLeaf head = 
-    if right head == EmptyNode && (left head) == EmptyNode
-    then head
-    else if right head == EmptyNode && (left head) /= EmptyNode
-    then rightMostNonemptyLeaf $ left head
-    else rightMostNonemptyLeaf $ right head
+rightmostNonemptyLeaf head | right head == EmptyNode && left head == EmptyNode = head
+rightmostNonemptyLeaf head | right head == EmptyNode && left head /= EmptyNode = rightmostNonemptyLeaf $ left head
+rightmostNonemptyLeaf head = rightmostNonemptyLeaf $ right head
+
 
 find :: BinaryTree -> Int -> BinaryTree
 find EmptyNode _ = EmptyNode

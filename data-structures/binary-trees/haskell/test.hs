@@ -108,6 +108,25 @@ testDeleteOneChild = do
     then putStrLn "Test delete node with one child: Passed"
     else putStrLn "Test delete node with one child: Failed"
 
+testDeleteTwoChildren = do
+    let tree = testTree
+    let removeNode = BinaryTree 0 EmptyNode EmptyNode
+    --              0
+    --        -1        3
+    --               1
+    --                 2
+    let actualResult = delete tree removeNode
+    let expected = BinaryTree 99 (BinaryTree (-1) EmptyNode (BinaryTree 3 (BinaryTree 1 EmptyNode (BinaryTree 2 EmptyNode EmptyNode)) EmptyNode)) EmptyNode
+    --                 99
+    --              -1
+    --                  3
+    --               1
+    --                 2
+
+    if expected == actualResult
+    then putStrLn "Test delete node with two children: Passed"
+    else putStrLn "Test delete node with two children: Failed"
+
 main :: IO ()
 main = do 
     testInsertIntoEmpty
@@ -120,4 +139,5 @@ main = do
     testDeleteEmptyTree
     testDeleteEmptyNode
     testDeleteOneChild
+    testDeleteTwoChildren
 
