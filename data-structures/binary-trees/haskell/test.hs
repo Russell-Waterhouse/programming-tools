@@ -100,6 +100,7 @@ testDeleteLeafNode = do
     then putStrLn "Test Delete Leaf Node: Passed"
     else putStrLn "Test Delete Leaf Node: Failed"
 
+testDeleteOneChild :: IO ()
 testDeleteOneChild = do
     let tree = BinaryTree 1 EmptyNode $ BinaryTree 2 EmptyNode EmptyNode
     let expected = BinaryTree 2 EmptyNode EmptyNode
@@ -108,13 +109,11 @@ testDeleteOneChild = do
     then putStrLn "Test delete node with one child: Passed"
     else putStrLn "Test delete node with one child: Failed"
 
+testDeleteTwoChildren :: IO ()
 testDeleteTwoChildren = do
     let tree = testTree
     let removeNode = BinaryTree 0 EmptyNode EmptyNode
     --              0
-    --        -1        3
-    --               1
-    --                 2
     let actualResult = delete tree removeNode
     let expected = BinaryTree 99 (BinaryTree (-1) EmptyNode (BinaryTree 3 (BinaryTree 1 EmptyNode (BinaryTree 2 EmptyNode EmptyNode)) EmptyNode)) EmptyNode
     --                 99
@@ -126,6 +125,22 @@ testDeleteTwoChildren = do
     if expected == actualResult
     then putStrLn "Test delete node with two children: Passed"
     else putStrLn "Test delete node with two children: Failed"
+
+testDeleteFromFullTree  :: IO ()
+testDeleteFromFullTree = do
+    let tree = BinaryTree 50 (BinaryTree 25 (BinaryTree 10 EmptyNode EmptyNode) (BinaryTree 40 EmptyNode EmptyNode)) (BinaryTree 75 (BinaryTree 60 EmptyNode EmptyNode) (BinaryTree 80 EmptyNode EmptyNode))
+    --                    50
+    --          25                  75
+    --      10     40            60    80
+    let removeNode = BinaryTree 50 EmptyNode EmptyNode
+    let expectedResult = BinaryTree 40 (BinaryTree 25 (BinaryTree 10 EmptyNode EmptyNode) (EmptyNode)) (BinaryTree 75 (BinaryTree 60 EmptyNode EmptyNode) (BinaryTree 80 EmptyNode EmptyNode))
+    --                   40
+    --          25                  75
+    --      10     Empty          60   80
+    let actual = delete tree removeNode
+    if expectedResult == actual
+    then putStrLn "Test delete node from full tree: Passed"
+    else putStrLn "Test delete node from full tree: Failed"
 
 main :: IO ()
 main = do 
@@ -140,4 +155,5 @@ main = do
     testDeleteEmptyNode
     testDeleteOneChild
     testDeleteTwoChildren
+    testDeleteFromFullTree
 
