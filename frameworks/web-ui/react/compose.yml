@@ -1,0 +1,8 @@
+version: "3"
+
+services: 
+  react-example:
+    build: .
+    image: react-example
+    ports:
+      - "5173:5173"
