@@ -1,5 +1,6 @@
 module BinaryTree where
 
+
 data BinaryTree = BinaryTree 
     {   val :: Int
     ,   left :: BinaryTree
@@ -8,17 +9,20 @@ data BinaryTree = BinaryTree
     | EmptyNode
     deriving (Show)
 
+
 instance Ord BinaryTree where 
     (<)  bt1 bt2 = val bt1 < val bt2
     (<=) bt1 bt2 = val bt1 <= val bt2    
     (>=) bt1 bt2 = val bt1 >= val bt2
     (>)  bt1 bt2 = val bt1 > val bt2
 
+
 instance Eq BinaryTree where 
     (==) EmptyNode EmptyNode = True
     (==) EmptyNode bt2 = False
     (==) bt1 EmptyNode = False
     (==) bt1 bt2 = val bt1 == val bt2
+
 
 insert :: BinaryTree -> Int -> BinaryTree
 insert EmptyNode value = BinaryTree value EmptyNode EmptyNode
@@ -59,6 +63,7 @@ predecessorOrSuccessor head | left head == EmptyNode && right head /= EmptyNode 
 predecessorOrSuccessor head | left head /= EmptyNode && right head == EmptyNode = left head
 predecessorOrSuccessor head = rightmostNonemptyLeaf $ left head
 
+
 rightmostNonemptyLeaf :: BinaryTree -> BinaryTree
 rightmostNonemptyLeaf EmptyNode = EmptyNode
 rightmostNonemptyLeaf head | right head == EmptyNode && left head == EmptyNode = head
@@ -81,6 +86,7 @@ traverseTree tree =
         rightSubtreeTraversal = traverseTree $ right tree
         value = show (val tree) ++ " "
     in leftSubtreeTraversal ++ value ++ rightSubtreeTraversal
+
 
 height :: BinaryTree -> Int
 height EmptyNode = 0

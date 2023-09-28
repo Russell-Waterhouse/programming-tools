@@ -5,6 +5,7 @@ import BinaryTree (BinaryTree(..), insert, delete, find, traverseTree, height)
 insert' :: Int -> BinaryTree -> BinaryTree
 insert' = flip insert
 
+
 testTree :: BinaryTree
 testTree = insert' 2 $ insert' 1 $ insert' 3 $ insert' (-1) $ insert' 0 $ insert' 99 EmptyNode
 --           99
@@ -22,6 +23,7 @@ testInsertIntoEmpty = do
     then putStrLn "Test insert into empty tree: Passed"
     else putStrLn "Test insert into empty tree: Failed"
 
+
 testInsertSameValue :: IO ()
 testInsertSameValue = do
     let head = BinaryTree 10 EmptyNode EmptyNode
@@ -30,6 +32,7 @@ testInsertSameValue = do
     if result == expected
     then putStrLn "Test insert duplicate value: Passed"
     else putStrLn "Test insert duplicate value: Failed"
+
 
 testInsertLeft :: IO ()
 testInsertLeft = do
@@ -40,6 +43,7 @@ testInsertLeft = do
     then putStrLn "Test insert left: Passed"
     else putStrLn "Test insert left: Failed"
 
+
 testInsertRight :: IO ()
 testInsertRight = do
     let head = BinaryTree 10 EmptyNode EmptyNode
@@ -49,6 +53,7 @@ testInsertRight = do
     then putStrLn "Test insert right: Passed"
     else putStrLn "Test insert right: Failed"
 
+
 testTraverse :: IO ()
 testTraverse = do
     let tree = testTree
@@ -57,6 +62,7 @@ testTraverse = do
     if expected == actual 
     then putStrLn "Test traversal: Passed"
     else putStrLn "Test traversal: Failed"
+
 
 testHeight :: IO ()
 testHeight = do
@@ -68,6 +74,7 @@ testHeight = do
     then putStrLn "Test height: Passed"
     else putStrLn "Test height: Failed"
 
+
 testFind :: IO ()
 testFind = do
     let actualEmpty:: BinaryTree = find EmptyNode 99
@@ -77,6 +84,7 @@ testFind = do
     then putStrLn "Test find: Passed"
     else putStrLn "Test find: Failed"
 
+
 testDeleteEmptyTree :: IO ()
 testDeleteEmptyTree = do
     let actualResult = delete EmptyNode $ BinaryTree 1 EmptyNode EmptyNode
@@ -84,6 +92,7 @@ testDeleteEmptyTree = do
     then putStrLn "Test Delete from empty tree: Passed"
     else putStrLn "Test Delete from empty tree: Failed"
     
+
 testDeleteEmptyNode :: IO ()
 testDeleteEmptyNode = do
     let tree :: BinaryTree = BinaryTree 1 EmptyNode EmptyNode
@@ -91,6 +100,7 @@ testDeleteEmptyNode = do
     if actualResult == tree
     then putStrLn "Test Delete empty node: Passed"
     else putStrLn "Test Delete empty node: Failed"
+
 
 testDeleteLeafNode :: IO ()
 testDeleteLeafNode = do
@@ -100,6 +110,7 @@ testDeleteLeafNode = do
     then putStrLn "Test Delete Leaf Node: Passed"
     else putStrLn "Test Delete Leaf Node: Failed"
 
+
 testDeleteOneChild :: IO ()
 testDeleteOneChild = do
     let tree = BinaryTree 1 EmptyNode $ BinaryTree 2 EmptyNode EmptyNode
@@ -108,6 +119,7 @@ testDeleteOneChild = do
     if expected == actual 
     then putStrLn "Test delete node with one child: Passed"
     else putStrLn "Test delete node with one child: Failed"
+
 
 testDeleteTwoChildren :: IO ()
 testDeleteTwoChildren = do
@@ -126,6 +138,7 @@ testDeleteTwoChildren = do
     then putStrLn "Test delete node with two children: Passed"
     else putStrLn "Test delete node with two children: Failed"
 
+
 testDeleteFromFullTree  :: IO ()
 testDeleteFromFullTree = do
     let tree = BinaryTree 50 (BinaryTree 25 (BinaryTree 10 EmptyNode EmptyNode) (BinaryTree 40 EmptyNode EmptyNode)) (BinaryTree 75 (BinaryTree 60 EmptyNode EmptyNode) (BinaryTree 80 EmptyNode EmptyNode))
@@ -141,6 +154,7 @@ testDeleteFromFullTree = do
     if expectedResult == actual
     then putStrLn "Test delete node from full tree: Passed"
     else putStrLn "Test delete node from full tree: Failed"
+
 
 main :: IO ()
 main = do 
