@@ -1,7 +1,7 @@
-export function Button(props) {
+export function Button({text, clickFunction}: {text: string, clickFunction: any}) {
     return (
-      <button>
-        {props.text}
+      <button onClick={clickFunction}>
+        {text}
       </button>
     )
 }
