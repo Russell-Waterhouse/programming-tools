@@ -1,33 +1,39 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { Button } from './Button'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [equation, setEquation] = useState("0");
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
+      <h1>Calculator</h1>
       <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
+        <h2>{equation}</h2>
+        <button onClick={() => setEquation((equation) => equation + "0")}>
+          click this to add a zero to the equation
         </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
+
+
+        <br/>
+        <Button text="1" />
+        <Button text="2" />
+        <Button text="3" />
+        <br/>
+        <Button text="4" />
+        <Button text="5" />
+        <Button text="6" />
+        <br/>
+        <Button text="7" />
+        <Button text="8" />
+        <Button text="9" />
+        <br/>
+        <Button text="0" />
+        <Button text="+" />
+        <Button text="-" />
+        <br/>
+        <Button text="=" />
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </>
   )
 }
