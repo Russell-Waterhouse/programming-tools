@@ -44,6 +44,8 @@ claim it does.
         - C
         - Haskell
         - Ruby
+    - Binary Tree
+        - Haskell
 
 - Design Patterns
     - Singleton
@@ -52,6 +54,7 @@ claim it does.
 - Frameworks
     - Templating
     - Web UI Frameworks
+        - React (work in progress)
 
 - Resources
     - OhShitGit
