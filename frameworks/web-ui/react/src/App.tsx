@@ -2,11 +2,25 @@ import { useState } from 'react'
 import './App.css'
 import { Button } from './Button'
 
+
 function App() {
   const [equation, setEquation] = useState<string>("0");
 
   const addToEquation = (char: string) => {
-    setEquation((equation) => equation + char);
+    setEquation((equation) => {
+        if (equation == "0") {
+            return char;
+        }
+        return equation + char
+    });
+  }
+
+  const clear = () => {
+    setEquation((equation) => "0");
+  }
+
+  const calculate = () => {
+    setEquation((equation) => eval(equation));
   }
 
   return (
@@ -33,7 +47,9 @@ function App() {
         <Button text="+" clickFunction={addToEquation} />
         <Button text="-" clickFunction={addToEquation} />
         <br/>
-        <Button text="=" clickFunction={addToEquation} />
+        <button onClick={() => calculate()} >=</button>
+        <button onClick={() => clear()} >CLEAR</button>
+
       </div>
     </>
   )
