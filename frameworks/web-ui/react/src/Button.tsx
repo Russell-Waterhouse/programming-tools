@@ -1,6 +1,6 @@
 export function Button({text, clickFunction}: {text: string, clickFunction: any}) {
-    return (
-      <button onClick={clickFunction}>
+    return ( 
+      <button onClick={() => clickFunction(text)}>
         {text}
       </button>
     )
