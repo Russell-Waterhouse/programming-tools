@@ -8,15 +8,11 @@ function App() {
 
   const addToEquation = (token: string) => {
     setEquation((equation) => {
-      if (equation == "0") {
+      if (equation === "0") {
         return token;
       }
       return equation + token
     });
-  }
-
-  const clear = () => {
-    setEquation((equation) => "0");
   }
 
   const calculate = () => {
@@ -51,7 +47,7 @@ function App() {
         <Button text="-" clickFunction={addToEquation} />
         <br/>
         <button onClick={() => calculate()} >=</button>
-        <button onClick={() => clear()} >CLEAR</button>
+        <button onClick={() => setEquation("0")} >CLEAR</button>
 
       </div>
     </>
