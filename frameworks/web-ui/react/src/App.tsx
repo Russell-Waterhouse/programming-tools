@@ -6,12 +6,12 @@ import { Button } from './Button'
 function App() {
   const [equation, setEquation] = useState<string>("0");
 
-  const addToEquation = (char: string) => {
+  const addToEquation = (token: string) => {
     setEquation((equation) => {
-        if (equation == "0") {
-            return char;
-        }
-        return equation + char
+      if (equation == "0") {
+        return token;
+      }
+      return equation + token
     });
   }
 
@@ -28,7 +28,6 @@ function App() {
       <h1>Calculator</h1>
       <div className="card">
         <h2>{equation}</h2>
-
 
         <br/>
         <Button text="1" clickFunction={addToEquation} />
