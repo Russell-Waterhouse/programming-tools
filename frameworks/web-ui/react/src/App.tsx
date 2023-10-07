@@ -46,7 +46,7 @@ function App() {
         <Button text="+" clickFunction={addToEquation} />
         <Button text="-" clickFunction={addToEquation} />
         <br/>
-        <button onClick={() => calculate()} >=</button>
+        <button onClick={calculate} >=</button>
         <button onClick={() => setEquation("0")} >CLEAR</button>
 
       </div>
