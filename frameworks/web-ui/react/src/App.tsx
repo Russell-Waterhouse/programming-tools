@@ -23,6 +23,10 @@ function App() {
     setEquation((equation) => eval(equation));
   }
 
+  //TODO: What I would really like is to pass a closure to 
+  //the Button component that it would call without any extra params
+  //so that I could pass in `calculate` and `clear` the same as
+  //addToEquation
   return (
     <>
       <h1>Calculator</h1>
