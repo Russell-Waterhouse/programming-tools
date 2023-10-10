@@ -1,5 +1,8 @@
 
+
 # React + TypeScript + Vite
+
+![Screenshot of running app](/public/screenshot.png)
 
 This project creates a very basic client-side js-powered calculator app.
 
@@ -7,7 +10,8 @@ This illustrates the basics of react/typescript development including:
 
 1. React hooks (useState() in this example)
 2. React Functional Components (Button.ts in this example)
-3. anything else?
+
+
 
 ## Running the Project
 run the command:
