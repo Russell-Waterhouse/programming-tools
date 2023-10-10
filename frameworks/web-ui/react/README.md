@@ -2,7 +2,7 @@
 
 # React + TypeScript + Vite
 
-![Screenshot of running app](/public/screenshot.png)
+[Screenshot of running app](/public/screenshot.png)
 
 This project creates a very basic client-side js-powered calculator app.
 
