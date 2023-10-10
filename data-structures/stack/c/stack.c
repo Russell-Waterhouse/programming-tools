@@ -11,9 +11,10 @@ Node* push(Node* head, Node* newNode) {
 }
 
 
-Node* pop(Node* head) {
-    Node* result = head;
-    head = head -> next;
+Node* pop(Node** head) {
+    Node* result = *head;
+    Node* new_head = result -> next;
+    *head = new_head;
     return result;
 }
 
