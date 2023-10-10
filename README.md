@@ -81,7 +81,7 @@ a community project. As such, I am not accepting pull requests at this time.
 3. I offer no guarantee that anything in this repository is up to date. If a
    framework releases a breaking change update, I may or may not go back and
    update that section of this repository.
-3. I STRONGLY discourage using this repository to cheat on programming
+4. I STRONGLY discourage using this repository to cheat on programming
    assignments. I have taken the time to create and maintain this repository
    because my career as a software engineer has taught me that these tools are
    necessary to understand. Please do use my work as a reference in your own
