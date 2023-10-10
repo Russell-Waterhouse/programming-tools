@@ -24,9 +24,8 @@ implementation in C first. I want to demonstrate these kinds of differences.
 For example, iterating through a list in C will be done with a while loop or 
 a for loop, but it will be done recursively in Haskell.
 4. I want to explain when to use these patterns, and I want that lesson to 
-be broadly applicable. I want to be able to explain when to use a singleton
-and when not to and use any programming language that I'm familiar with as an 
-example.
+be broadly applicable. I want to be able to explain when to use a queue
+and when to use a stack in any programming language that I'm familiar with.
 5. I want to be able to compare the performance of these implementations. I 
 want to compare a C linked list to a Haskell linked list and see if Haskell's 
 tail call recursion actually saves the amount of memory that people on reddit 
@@ -62,17 +61,29 @@ claim it does.
     - OhShitGit
     - tldr
 
+## Contributing 
+
+If you want to see something in this repository, you are encouraged to open a
+github issue about it. 
+
+However, this repository is currently intended to be my own personal work, not
+a community project. As such, I am not accepting pull requests at this time.
+
+
 ## Disclaimers
 
-1. I offer no guarantee of the correctness or completeness of anything 
-in this repository. If you copy-paste my incomplete buggy code into 
-your production code base, break something, and get fired, that's on you.
-2. I offer no guarantee that any information in this repository is correct.
-I may have incorrect information about algorithms, data structures, patterns,
-or anything else written about in this repository.
-3. I STRONGLY discourage using this repository to cheat on programming 
-assignments. I have taken the time to create and maintain this repository 
-because my career as a software engineer has taught me that these tools
-are necessary to understand. Please do use my work as a reference in your 
-own learning, but don't just copy-paste it for a grade.
+1. I offer no guarantee of the correctness or completeness of anything in this
+   repository. If you copy-paste my incomplete buggy code into your production
+   code base, break something, and get fired, that's on you.
+2. I offer no guarantee that any information in this repository is correct. I
+   may have incorrect information about algorithms, data structures, patterns,
+   or anything else written about in this repository.
+3. I offer no guarantee that anything in this repository is up to date. If a
+   framework releases a breaking change update, I may or may not go back and
+   update that section of this repository.
+4. I STRONGLY discourage using this repository to cheat on programming
+   assignments. I have taken the time to create and maintain this repository
+   because my career as a software engineer has taught me that these tools are
+   necessary to understand. Please do use my work as a reference in your own
+   learning, but don't just copy-paste it for a grade.
 
