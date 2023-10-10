@@ -44,6 +44,8 @@ claim it does.
         - C
         - Haskell
         - Ruby
+    - Stack
+        - C
     - Binary Tree
         - Haskell
 
