@@ -1,0 +1,7 @@
+version: "3"
+
+services: 
+  stack-c:
+    build: .
+    image: stack-c
+
