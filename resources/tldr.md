@@ -1,7 +1,7 @@
 # tldr, the shorter man page
 
 ## Link
-(https://github.com/tldr-pages/tldr)[https://github.com/tldr-pages/tldr]
+![https://github.com/tldr-pages/tldr](https://github.com/tldr-pages/tldr)
 
 ## What it is:
 
