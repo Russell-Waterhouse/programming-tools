@@ -53,9 +53,8 @@ claim it does.
         - Kotlin
 
 - Frameworks
-    - Templating
     - Web UI Frameworks
-        - React (work in progress)
+        - React 
 
 - Resources
     - OhShitGit
