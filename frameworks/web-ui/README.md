@@ -1,5 +1,11 @@
 # Web UI Frameworks
 
-This is for frameworks like React, Svelte, Vue, Angular, and HTMX.
+This directory contains frontend web ui frameworks, such as React, Svelte, Vue, and Angular.
 
-//TODO: Write the rest of this readme
+In each framework directory, you'll find the same basic calculator project 
+done with each framework. 
+
+Currently, these are the frameworks that have been completed, but more
+are coming soon™️
+
+- React
