@@ -7,7 +7,7 @@ function App() {
   const [equation, setEquation] = useState<string>("0");
 
   const addToEquation = (token: string) => {
-    setEquation((equation) => {
+    setEquation((equation: string) => {
       if (equation === "0") {
         return token;
       }
@@ -19,10 +19,6 @@ function App() {
     setEquation((equation) => eval(equation));
   }
 
-  //TODO: What I would really like is to pass a closure to 
-  //the Button component that it would call without any extra params
-  //so that I could pass in `calculate` and `clear` the same as
-  //addToEquation
   return (
     <>
       <h1>Calculator</h1>
@@ -30,24 +26,25 @@ function App() {
         <h2>{equation}</h2>
 
         <br/>
-        <Button text="1" clickFunction={addToEquation} />
-        <Button text="2" clickFunction={addToEquation}/>
-        <Button text="3" clickFunction={addToEquation} />
+        <Button text="1" clickFunction={() => addToEquation('1')} />
+        <Button text="2" clickFunction={() => addToEquation('2')}/>
+        <Button text="3" clickFunction={() => addToEquation('3')} />
         <br/>
-        <Button text="4" clickFunction={addToEquation} />
-        <Button text="5" clickFunction={addToEquation} />
-        <Button text="6" clickFunction={addToEquation} />
+        <Button text="4" clickFunction={() => addToEquation('4')} />
+        <Button text="5" clickFunction={() => addToEquation('5')} />
+        <Button text="6" clickFunction={() => addToEquation('6')} />
         <br/>
-        <Button text="7" clickFunction={addToEquation} />
-        <Button text="8" clickFunction={addToEquation} />
-        <Button text="9" clickFunction={addToEquation} />
+        <Button text="7" clickFunction={() => addToEquation('7')} />
+        <Button text="8" clickFunction={() => addToEquation('8')} />
+        <Button text="9" clickFunction={() => addToEquation('9')} />
         <br/>
-        <Button text="0" clickFunction={addToEquation} />
-        <Button text="+" clickFunction={addToEquation} />
-        <Button text="-" clickFunction={addToEquation} />
+        <Button text="0" clickFunction={() => addToEquation('0')} />
+        <Button text="+" clickFunction={() => addToEquation('+')} />
+        <Button text="-" clickFunction={() => addToEquation('-')} />
         <br/>
-        <button onClick={calculate} >=</button>
-        <button onClick={() => setEquation("0")} >CLEAR</button>
+        <Button text="=" clickFunction={() => calculate()} />
+        <Button text="CLEAR" clickFunction={() => setEquation("0")} />
+        <br/>
 
       </div>
     </>
