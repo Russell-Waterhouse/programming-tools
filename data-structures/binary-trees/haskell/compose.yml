@@ -1,0 +1,7 @@
+version: "3"
+
+services:
+    haskell-binary-tree:
+        build: .
+        image: haskell-binary-tree
+

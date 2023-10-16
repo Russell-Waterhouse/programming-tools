@@ -1,0 +1,18 @@
+version: "3"
+
+services: 
+  react-example:
+    build: .
+    image: react-example
+    ports:
+      - "5173:5173"
+    volumes:
+      - type: volume
+        source: node_modules
+        target: /app/node_modules
+      - type: bind
+        source: .
+        target: /app
+
+volumes:
+  node_modules:
