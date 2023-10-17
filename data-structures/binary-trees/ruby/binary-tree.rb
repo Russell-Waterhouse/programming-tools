@@ -62,6 +62,6 @@ class BinaryTree
   end
 
   def traverse()
-    puts "not yet implemented"
+    "#{@left&.traverse} #{@value} #{@right&.traverse}"
   end
 end
