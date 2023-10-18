@@ -40,9 +40,9 @@ class BinaryTree
       return @left.value
     end
 
-    return @right.insert(value) if value > @value && @right.nil?
+    return @right.insert(value) if value > @value && !@right.nil?
 
-    return @left.insert(value) if value <= @value && @left.nil?
+    return @left.insert(value) if value <= @value && !@left.nil?
 
     raise 'unexpected state Exception'
   end
