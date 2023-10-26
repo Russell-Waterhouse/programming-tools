@@ -1,0 +1,7 @@
+version: '3'
+
+services: 
+  rust-linked-list: 
+    build: .
+    image: rust-linked-list
+
