@@ -1,0 +1,8 @@
+version: "3"
+
+
+services: 
+  binary-tree-ruby: 
+    build: .
+    image: binary-tree-ruby
+
