@@ -15,4 +15,6 @@ fn main(){
         value: 1,
         next: Some(&node),
     };
+
+    println!("{}", head.value);
 }
