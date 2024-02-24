@@ -12,6 +12,7 @@ class BinaryTree
   end
 
   def delete(node)
+    # TODO: Handle case where we need to delete this node
     if node == @left
       @left = nil
       return node.value
