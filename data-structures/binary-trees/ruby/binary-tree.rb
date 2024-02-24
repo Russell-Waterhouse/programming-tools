@@ -11,8 +11,13 @@ class BinaryTree
     @value
   end
 
+  def is_leaf
+    @left.nil? && @right.nil?
+  end
+
   def delete(node)
-    # TODO: Handle case where we need to delete this node
+    if node == self
+      delete_self
     if node == @left
       @left = nil
       return node.value
@@ -26,6 +31,28 @@ class BinaryTree
     return @left.delete(node) if node.value < @value
 
     @right.delete(node)
+  end
+
+  def replacement_node
+    replacement = previous_node
+    if replacement.nil?
+      replacement = next_node
+    end
+
+    replacement
+  end
+
+  def previous_node
+    current = node.left
+
+    until current.is_leaf
+      if !current.left.nil?
+        current = current.left
+      elsif !current.right.nil?
+        current = current.right
+      end
+    end
+    current
   end
 
   def insert(value)
